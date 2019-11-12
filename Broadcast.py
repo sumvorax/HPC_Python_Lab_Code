@@ -11,8 +11,9 @@ if rank == 0:
 else:
     data = None
 
-print("[Before] rank = %r: data = %r" % (rank, data))
+print("rank = %r: data = %r" % (rank, data))
 
+comm.Barrier()
 data = comm.bcast(data, root=0)
 
-print("[After] rank = %r: data = %r" % (rank, data))
+print("rank = %r: data = %r" % (rank, data))
